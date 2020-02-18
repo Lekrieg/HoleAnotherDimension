@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 	private void CheckInput()
 	{
 		inputDirection = Input.GetAxisRaw("Horizontal");
+		Debug.Log(inputDirection);
 
 		if(Input.GetButtonDown("Jump"))
 		{
@@ -72,9 +73,7 @@ public class Player : MonoBehaviour
 		{
 			Flip();
 		}
-
-		Debug.Log(playerRb.velocity.x);
-		if(playerRb.velocity.x != 0)
+		if(playerRb.velocity.x > 0.1 || playerRb.velocity.x < -0.1)
 		{
 			isWalking = true;
 		}

@@ -13,7 +13,7 @@ You are trying to get to the end of this world and discover what happened to you
 ## **Initial game mechanic** <h2>
 - [x] Walk
 - [x] Jump
-- [ ] Animations(I've made but they are with a strange bug)
+- [x] Animations(bug fixed, basic animations? Yep, but works..)
 - [ ] Enter in portals
 - [ ] Pull/push objects
 - [ ] Pick up Objects
