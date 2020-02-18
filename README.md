@@ -11,8 +11,9 @@ Project made for Brackeys Game Jam 2020.1. You must go through portals to comple
 You are trying to get to the end of this world and discover what happened to you.
 
 ## **Initial game mechanic** <h2>
-- [ ] Walk
-- [ ] Jump
+- [x] Walk
+- [x] Jump
+- [ ] Animations(I've made but they are with a strange bug)
 - [ ] Enter in portals
 - [ ] Pull/push objects
 - [ ] Pick up Objects
