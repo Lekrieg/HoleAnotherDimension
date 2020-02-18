@@ -12,9 +12,9 @@ You are trying to get to the end of this world and discover what happened to you
 
 ## **Initial game mechanic** <h2>
 - [x] Walk
-- [ ] Jump
+- [x] Jump
 	- [x] Normal Jump
-	- [ ] Wall Jump
+	- [x] Wall Jump
 - [x] Wall slide
 - [x] Animations(bug fixed, basic animations? Yep, but works..)
 - [ ] Enter in portals

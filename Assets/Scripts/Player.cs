@@ -25,6 +25,18 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	private int amountOfJumps = 1;
 	private int amountOfJumpsLeft;
+	[SerializeField]
+	private float wallHopForce;
+	[SerializeField]
+	private float wallJumpForce;
+	private int facingDirection = 1;
+	// ------------------------------------------
+
+	// --- Vectors that determine the direction that we jump off the walls ---
+	[SerializeField]
+	private Vector2 wallHopDirection;
+	[SerializeField]
+	private Vector2 wallJumpDirection;
 	// ------------------------------------------
 
 	// --- check variables ---
@@ -54,6 +66,9 @@ public class Player : MonoBehaviour
 		playerRb = GetComponent<Rigidbody2D>();
 
 		amountOfJumpsLeft = amountOfJumps;
+
+		wallHopDirection.Normalize();
+		wallJumpDirection.Normalize();
 	}
 	void Update()
 	{
@@ -111,7 +126,7 @@ public class Player : MonoBehaviour
 	}
 	private void CheckIfCanJump()
 	{
-		if(isGrounded && playerRb.velocity.y <= 0)
+		if((isGrounded && playerRb.velocity.y <= 0) || isWallSliding)
 		{
 			amountOfJumpsLeft = amountOfJumps;
 		}
@@ -168,10 +183,24 @@ public class Player : MonoBehaviour
 	}
 	private void Jump()
 	{
-		if(canJump)
+		if(canJump && !isWallSliding)
 		{
 			playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
 			amountOfJumpsLeft--;
+		}
+		else if(isWallSliding && inputDirection == 0 && canJump) // Wall hop
+		{
+			isWallSliding = false;
+			amountOfJumpsLeft--;
+			Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * -facingDirection, wallHopForce * wallHopDirection.y);
+			playerRb.AddForce(forceToAdd, ForceMode2D.Impulse);
+		}
+		else if((isWallSliding || isTouchingWall) && (inputDirection != 0) && canJump) // Wall jump
+		{
+			isWallSliding = false;
+			amountOfJumpsLeft--;
+			Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * inputDirection, wallJumpForce * wallJumpDirection.y);
+			playerRb.AddForce(forceToAdd, ForceMode2D.Impulse);
 		}
 	}
 	private void UpdateAnimations()
@@ -186,6 +215,7 @@ public class Player : MonoBehaviour
 	{
 		if(!isWallSliding)
 		{
+			facingDirection *= -1;
 			isFacingRight = !isFacingRight;
 			transform.Rotate(0.0f, 180.0f, 0.0f);
 		}
