@@ -20,7 +20,7 @@ You are trying to get to the end of this world and discover what happened to you
 - [ ] Enter in portals
 - [ ] Pull/push objects
 - [ ] Pick up Objects
-- [ ] Chat with npcs
+- [x] Basic dialogue system
 - [ ] Maybe attack depending on where you are
 
 ## **GDD** <h2>

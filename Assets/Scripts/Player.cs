@@ -78,8 +78,11 @@ public class Player : MonoBehaviour
 	}
 	void FixedUpdate()
 	{
-		ApplyMovement();
-		CheckSurroundings();
+		if(!DialogueSystem.Instance.isInteracting)
+		{
+			ApplyMovement();
+			CheckSurroundings();
+		}
 	}
 
 	// --- This method will check every input from the player ---
@@ -96,6 +99,8 @@ public class Player : MonoBehaviour
 		{
 			playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y * variableJumpHeightMultiplayer);
 		}
+
+		// Se eu estiver no range com objeto e eu puder interagir eu interajo
 	}
 	private void CheckMovementDirection()
 	{
@@ -224,6 +229,14 @@ public class Player : MonoBehaviour
 		if(colliderObject.tag == "DimensionPortal")
 		{
 			GameManager.instance.ToggleWorlds();
+		}
+		if(colliderObject.tag == "Door")
+		{
+			Debug.Log("Interacting with the door!");
+		}
+		if(colliderObject.tag == "Tombstone")
+		{
+			Debug.Log("Interacting with a tombstone!");
 		}
 	}
 

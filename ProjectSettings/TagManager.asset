@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - DimensionPortal
+  - Door
+  - Tombstone
   layers:
   - Default
   - TransparentFX
@@ -53,4 +55,7 @@ TagManager:
     locked: 0
   - name: ForegroundProps
     uniqueID: 1400201061
+    locked: 0
+  - name: UI
+    uniqueID: 4240708937
     locked: 0

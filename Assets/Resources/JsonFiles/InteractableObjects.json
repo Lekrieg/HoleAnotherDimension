@@ -1,0 +1,10 @@
+{
+	"InteractableObjects":[
+		{
+			"name": "Tombstone",
+			"frases": [
+				"You must reborn, you are the king of..."
+			]
+		}
+	]
+}
