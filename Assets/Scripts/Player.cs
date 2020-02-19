@@ -41,8 +41,6 @@ public class Player : MonoBehaviour
 
 	// --- check variables ---
 	[SerializeField]
-	private LayerMask whatIsGround;
-	[SerializeField]
 	private Transform groundCheck;
 	[SerializeField]
 	private float groundCheckRadius;
@@ -120,9 +118,9 @@ public class Player : MonoBehaviour
 	}
 	private void CheckSurroundings()
 	{
-		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GameManager.instance.whatIsGround);
 
-		isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
+		isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, GameManager.instance.whatIsGround);
 	}
 	private void CheckIfCanJump()
 	{
@@ -218,6 +216,14 @@ public class Player : MonoBehaviour
 			facingDirection *= -1;
 			isFacingRight = !isFacingRight;
 			transform.Rotate(0.0f, 180.0f, 0.0f);
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D colliderObject)
+	{
+		if(colliderObject.tag == "DimensionPortal")
+		{
+			GameManager.instance.ToggleWorlds();
 		}
 	}
 
