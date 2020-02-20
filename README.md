@@ -21,6 +21,7 @@ You are trying to get to the end of this world and discover what happened to you
 - [ ] Pull/push objects
 - [ ] Pick up Objects
 - [x] Basic dialogue system
+- [x] Main menu
 - [ ] Maybe attack depending on where you are
 
 ## **Demo gif** <h2>
