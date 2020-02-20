@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 	Animator playerAnim;
 	Rigidbody2D playerRb;
 
+	WorldPortalManager wpManager;
+
 	// --- bool variables for checking things ---
 	private bool isFacingRight = true;
 	private bool isWalking;
@@ -58,6 +60,11 @@ public class Player : MonoBehaviour
 	private float variableJumpHeightMultiplayer = 0.5f;
 	// ------------------------------------------
 
+	private void Awake()
+	{
+		wpManager = GameObject.FindObjectOfType<WorldPortalManager>();
+	}
+
 	void Start()
 	{
 		playerAnim = GetComponent<Animator>();
@@ -70,11 +77,14 @@ public class Player : MonoBehaviour
 	}
 	void Update()
 	{
-		CheckInput();
-		CheckMovementDirection();
 		UpdateAnimations();
-		CheckIfCanJump();
-		CheckIfWallSliding();
+		if (!DialogueSystem.Instance.isInteracting)
+		{
+			CheckInput();
+			CheckMovementDirection();
+			CheckIfCanJump();
+			CheckIfWallSliding();
+		}
 	}
 	void FixedUpdate()
 	{
@@ -123,9 +133,9 @@ public class Player : MonoBehaviour
 	}
 	private void CheckSurroundings()
 	{
-		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, GameManager.instance.whatIsGround);
+		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, wpManager.whatIsGround);
 
-		isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, GameManager.instance.whatIsGround);
+		isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, wpManager.whatIsGround);
 	}
 	private void CheckIfCanJump()
 	{
@@ -228,10 +238,11 @@ public class Player : MonoBehaviour
 	{
 		if(colliderObject.tag == "DimensionPortal")
 		{
-			GameManager.instance.ToggleWorlds();
+			wpManager.ToggleWorlds();
 		}
 		if(colliderObject.tag == "Door")
 		{
+			GameManager.instance.NextLevel();
 			Debug.Log("Interacting with the door!");
 		}
 		if(colliderObject.tag == "Tombstone")

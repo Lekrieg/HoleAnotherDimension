@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
 
     private void StartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("FirstLevel");
+        GameManager.instance.NextLevel();
     }
     private void QuitGame()
     {
