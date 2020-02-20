@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tombstone : MonoBehaviour
 {
+    public SignalMessage signalContext;
     public bool isInRange;
 
     private void Update()
@@ -22,6 +23,7 @@ public class Tombstone : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            signalContext.Raise();
             isInRange = true;
         }
     }
@@ -30,6 +32,7 @@ public class Tombstone : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            signalContext.Raise();
             isInRange = false;
         }
     }
