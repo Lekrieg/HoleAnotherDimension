@@ -24,7 +24,7 @@ You are trying to get to the end of this world and discover what happened to you
 - [ ] Maybe attack depending on where you are
 
 ## **Demo gif** <h2>
-![](gifs/Mechanics)
+![](https://github.com/Lekrieg/HoleAnotherDimension/blob/master/gifs/Mechanics.gif)
 
 ## **GDD** <h2>
 - [ ] Write the GDD
