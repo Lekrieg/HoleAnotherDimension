@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
 	public static DialogueSystem Instance { get; set; }
 
-	public GameObject dialoguePanel;
+	private GameObject dialoguePanel;
 
 	public List<string> dialogueLines = new List<string>();
 	public string npcName;
 
-	TextMeshProUGUI dialogueText;
-	TextMeshProUGUI nameText;
+	Text dialogueText;
+	Text nameText;
 	int dialogueIndex;
 
 	public bool isInteracting = false;
@@ -29,8 +29,9 @@ public class DialogueSystem : MonoBehaviour
 			Instance = this;
 		}
 
-		dialogueText = GameObject.Find("DialogueTextTMP").GetComponent<TextMeshProUGUI>();
-		nameText = GameObject.Find("NomeTextTMP").GetComponent<TextMeshProUGUI>();
+		dialoguePanel = GameObject.Find("DialoguePanel");
+		dialogueText = GameObject.Find("DialogueText").GetComponent<Text>();
+		nameText = GameObject.Find("NomeText").GetComponent<Text>();
 
 		dialoguePanel.SetActive(false);
 	}
@@ -57,7 +58,7 @@ public class DialogueSystem : MonoBehaviour
 	// Colocar para ativar quando apertar uma tecla
 	public void ContinueDialogue()
 	{
-		if(dialogueIndex < dialogueLines.Count - 1)
+		if (dialogueIndex < dialogueLines.Count - 1)
 		{
 			dialogueIndex++;
 			dialogueText.text = dialogueLines[dialogueIndex];

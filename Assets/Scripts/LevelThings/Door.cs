@@ -2,26 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tombstone : MonoBehaviour
+public class Door : MonoBehaviour
 {
+    [SerializeField]
+    private int door;
+
     public SignalMessage signalContext;
     public bool isInRange;
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isInRange && !DialogueSystem.Instance.isInteracting)
+        if (Input.GetKeyDown(KeyCode.E) && isInRange && !DialogueSystem.Instance.isInteracting)
         {
-            GetComponent<InteractableObjects>().Interact();
-        }
-        else if(Input.GetKeyDown(KeyCode.E) && DialogueSystem.Instance.isInteracting)
-        {
-            DialogueSystem.Instance.ContinueDialogue();
+            GameManager.instance.GoToDoor(door);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             signalContext.Raise();
             isInRange = true;
@@ -30,7 +29,7 @@ public class Tombstone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             signalContext.Raise();
             isInRange = false;

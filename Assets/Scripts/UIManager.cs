@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
 
     private void StartGame()
     {
-        GameManager.instance.NextLevel();
+        GameManager.instance.GoToScene("GameLevel");
     }
     private void QuitGame()
     {

@@ -3,7 +3,22 @@
 		{
 			"name": "Tombstone",
 			"frases": [
-				"You must reborn, you are the king of..."
+				"You wake up, but don't remember what happened. You just see this tombstone and a portal.",
+				"Somehow you know that you need to enter in it..."
+
+			]
+		},
+		{
+			"name": "Tombstone",
+			"frases": [
+				"In your head you hear: \"By transiting between portals, you can get to other places and save her...\""
+			]
+		},
+		{
+			"name": "Throne of the king",
+			"frases": [
+				"You see the empty throne, and remember that there is an exit from this place somewhere.",
+				"You don't remember who was the king, but you know that something bad happened."
 			]
 		}
 	]

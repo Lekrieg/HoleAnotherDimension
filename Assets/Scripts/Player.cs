@@ -133,9 +133,12 @@ public class Player : MonoBehaviour
 	}
 	private void CheckSurroundings()
 	{
-		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, wpManager.whatIsGround);
+		if(wpManager)
+		{
+			isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, wpManager.whatIsGround);
 
-		isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, wpManager.whatIsGround);
+			isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, wpManager.whatIsGround);
+		}
 	}
 	private void CheckIfCanJump()
 	{
@@ -238,16 +241,10 @@ public class Player : MonoBehaviour
 	{
 		if(colliderObject.tag == "DimensionPortal")
 		{
-			wpManager.ToggleWorlds();
-		}
-		if(colliderObject.tag == "Door")
-		{
-			GameManager.instance.NextLevel();
-			Debug.Log("Interacting with the door!");
-		}
-		if(colliderObject.tag == "Tombstone")
-		{
-			Debug.Log("Interacting with a tombstone!");
+			if(wpManager)
+			{
+				wpManager.ToggleWorlds();
+			}
 		}
 	}
 

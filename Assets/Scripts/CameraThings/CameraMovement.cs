@@ -6,8 +6,6 @@ public class CameraMovement : MonoBehaviour
 {
 	public Transform target;
 	public float smoothing;
-	public Vector2 maxPosition;
-	public Vector2 minPosition;
 
 	void LateUpdate()
 	{
@@ -15,8 +13,8 @@ public class CameraMovement : MonoBehaviour
 		{
 			Vector3 offset = new Vector3(target.position.x, target.position.y, transform.position.z);
 
-			offset.x = Mathf.Clamp(offset.x, minPosition.x, maxPosition.x);
-			offset.y = Mathf.Clamp(offset.y, minPosition.y, maxPosition.y);
+			offset.x = Mathf.Clamp(offset.x, GameManager.instance.cdPoints[GameManager.instance.door].minPosition.x, GameManager.instance.cdPoints[GameManager.instance.door].maxPosition.x);
+			offset.y = Mathf.Clamp(offset.y, GameManager.instance.cdPoints[GameManager.instance.door].minPosition.y, GameManager.instance.cdPoints[GameManager.instance.door].maxPosition.y);
 
 			transform.position = Vector3.Lerp(transform.position, offset, smoothing);
 		}
