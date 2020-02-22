@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
-	public static DialogueSystem Instance { get; set; }
+	public static DialogueSystem Instance;
 
 	private GameObject dialoguePanel;
 
@@ -20,14 +20,7 @@ public class DialogueSystem : MonoBehaviour
 
 	void Awake()
 	{
-		if(Instance != null && Instance != this)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
-			Instance = this;
-		}
+		Instance = this;
 
 		dialoguePanel = GameObject.Find("DialoguePanel");
 		dialogueText = GameObject.Find("DialogueText").GetComponent<Text>();

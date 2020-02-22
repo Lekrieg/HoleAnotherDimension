@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 	void Update()
 	{
 		UpdateAnimations();
-		if (!DialogueSystem.Instance.isInteracting)
+		if (!GameManager.instance.isInteracting)
 		{
 			CheckInput();
 			CheckMovementDirection();
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 	}
 	void FixedUpdate()
 	{
-		if(!DialogueSystem.Instance.isInteracting)
+		if(!GameManager.instance.isInteracting)
 		{
 			ApplyMovement();
 			CheckSurroundings();

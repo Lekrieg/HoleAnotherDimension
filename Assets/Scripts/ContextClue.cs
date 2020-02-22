@@ -10,7 +10,7 @@ public class ContextClue : MonoBehaviour
     public void ChangeContext()
     {
         contextActive = !contextActive;
-        if(contextActive && !DialogueSystem.Instance.isInteracting)
+        if(contextActive && !GameManager.instance.isInteracting)
         {
             contextClue.SetActive(true);
         }

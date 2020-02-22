@@ -5,6 +5,7 @@ Open source game for __**Windows**__(initially).
 Project made for Brackeys Game Jam 2020.1. You must go through portals to complete some mechanics in order to proceed.
 
 **Game Engine: Unity3D 2019.3.1f1**
+You can find the game here: https://lekrieg.itch.io/hole-another-diomension
 
 ## **Base story** <h2>
 
@@ -17,7 +18,7 @@ You are trying to get to the end of this world and discover what happened to you
 	- [x] Wall Jump
 - [x] Wall slide
 - [x] Animations(bug fixed, basic animations? Yep, but works..)
-- [ ] Enter in portals
+- [x] Enter in portals
 - [ ] Pull/push objects
 - [ ] Pick up Objects
 - [x] Basic dialogue system

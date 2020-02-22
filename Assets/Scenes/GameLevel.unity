@@ -2868,6 +2868,81 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.29
+--- !u!1 &768302088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 768302089}
+  - component: {fileID: 768302091}
+  - component: {fileID: 768302090}
+  m_Layer: 5
+  m_Name: DialoguePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &768302089
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768302088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1579235702}
+  - {fileID: 1350508517}
+  m_Father: {fileID: 1630852195}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.21875, y: 0.053266305}
+  m_AnchorMax: {x: 0.78249997, y: 0.3666848}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.0000076293945}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &768302090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768302088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.80784315}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &768302091
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768302088}
+  m_CullTransparentMesh: 0
 --- !u!1 &790746169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,7 +2954,6 @@ GameObject:
   - component: {fileID: 790746170}
   - component: {fileID: 790746173}
   - component: {fileID: 790746172}
-  - component: {fileID: 790746171}
   m_Layer: 0
   m_Name: Throne
   m_TagString: Untagged
@@ -2901,19 +2975,6 @@ Transform:
   m_Father: {fileID: 1630299420}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &790746171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 790746169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fbd5897c5afcdc4db7893de28834f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objIndex: 2
 --- !u!114 &790746172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2928,6 +2989,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signalContext: {fileID: 11400000, guid: ae635936f53f69745af7f6728a6546de, type: 2}
   isInRange: 0
+  dialoguePanel: {fileID: 768302088}
+  dialogueText: {fileID: 1579235703}
+  nameText: {fileID: 26186477}
+  nome: Throne of the king
+  frases:
+  - You see the empty throne, and remember that there is an exit from this place
+    somewhere.
+  - You don't remember who was the king, but you know that something bad happened.
 --- !u!61 &790746173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3944,7 +4013,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1062522841}
   - component: {fileID: 1062522844}
-  - component: {fileID: 1062522843}
   - component: {fileID: 1062522842}
   m_Layer: 9
   m_Name: Tombstone2
@@ -3981,19 +4049,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signalContext: {fileID: 11400000, guid: ae635936f53f69745af7f6728a6546de, type: 2}
   isInRange: 0
---- !u!114 &1062522843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062522840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fbd5897c5afcdc4db7893de28834f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objIndex: 1
+  dialoguePanel: {fileID: 768302088}
+  dialogueText: {fileID: 1579235703}
+  nameText: {fileID: 26186477}
+  nome: Tombstone
+  frases:
+  - 'In your head you hear: "By transiting between portals, you can get to other
+    places and save her..."'
 --- !u!61 &1062522844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4453,18 +4515,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350508516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 26186476}
-  m_Father: {fileID: 1434527307}
+  m_Father: {fileID: 768302089}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.199997, y: -5}
-  m_SizeDelta: {x: 137, y: 26}
+  m_AnchoredPosition: {x: 10, y: -9.7257}
+  m_SizeDelta: {x: 142, y: 28.908}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1350508518
 MonoBehaviour:
@@ -4614,81 +4676,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1434527304
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1434527307}
-  - component: {fileID: 1434527306}
-  - component: {fileID: 1434527305}
-  m_Layer: 5
-  m_Name: DialoguePanel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1434527305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434527304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.77254903}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1434527306
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434527304}
-  m_CullTransparentMesh: 0
---- !u!224 &1434527307
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434527304}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1579235702}
-  - {fileID: 1350508517}
-  m_Father: {fileID: 1630852195}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.20500001, y: 0.04229814}
-  m_AnchorMax: {x: 0.79249996, y: 0.35300002}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1450999123
 GameObject:
   m_ObjectHideFlags: 0
@@ -8338,17 +8325,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579235701}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1434527307}
+  m_Father: {fileID: 768302089}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.050872345, y: 0.14850438}
   m_AnchorMax: {x: 0.93848944, y: 0.84200007}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 4.687317, y: 0.1038208}
+  m_SizeDelta: {x: -31.243988, y: -15.129639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1579235703
 MonoBehaviour:
@@ -8530,7 +8517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
@@ -8571,7 +8558,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1434527307}
+  - {fileID: 768302089}
   - {fileID: 798098808}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -8591,7 +8578,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1735947374}
   - component: {fileID: 1735947375}
-  - component: {fileID: 1735947376}
   - component: {fileID: 1735947377}
   m_Layer: 8
   m_Name: Tombstone
@@ -8640,19 +8626,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.8}
   m_EdgeRadius: 0
---- !u!114 &1735947376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735947373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fbd5897c5afcdc4db7893de28834f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objIndex: 0
 --- !u!114 &1735947377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8667,6 +8640,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signalContext: {fileID: 11400000, guid: ae635936f53f69745af7f6728a6546de, type: 2}
   isInRange: 0
+  dialoguePanel: {fileID: 768302088}
+  dialogueText: {fileID: 1579235703}
+  nameText: {fileID: 26186477}
+  nome: Tombstone
+  frases:
+  - You wake up, but don't remember what happened. You just see this tombstone and
+    a portal.
+  - Somehow you know that you need to enter in it...
 --- !u!1 &1756754352
 GameObject:
   m_ObjectHideFlags: 0

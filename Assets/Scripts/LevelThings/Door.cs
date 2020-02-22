@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInRange && !DialogueSystem.Instance.isInteracting)
+        if (Input.GetKeyDown(KeyCode.E) && isInRange)
         {
             GameManager.instance.GoToDoor(door);
         }

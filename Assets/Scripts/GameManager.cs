@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
 	public int door;
 
+	public bool isInteracting = false;
+
 	void Awake()
 	{
 		if(instance != null)
