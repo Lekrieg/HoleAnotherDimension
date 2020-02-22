@@ -19,10 +19,10 @@ You are trying to get to the end of this world and discover what happened to you
 - [x] Wall slide
 - [x] Animations(bug fixed, basic animations? Yep, but works..)
 - [x] Enter in portals
-- [ ] Pull/push objects
-- [ ] Pick up Objects
 - [x] Basic dialogue system
 - [x] Main menu
+- [ ] Pick up Objects
+- [ ] Pull/push objects
 - [ ] Maybe attack depending on where you are
 
 ## **Demo gif** <h2>
