@@ -21,9 +21,14 @@ You are trying to get to the end of this world and discover what happened to you
 - [x] Enter in portals
 - [x] Basic dialogue system
 - [x] Main menu
+
+## **todo** <h2>
+- [ ] Refatoring
 - [ ] Pick up Objects
 - [ ] Pull/push objects
-- [ ] Maybe attack depending on where you are
+- [ ] Basic atack / skills
+- [ ] Add some monsters
+- [ ] Boss mechanic
 
 ## **Demo gif** <h2>
 ![](https://github.com/Lekrieg/HoleAnotherDimension/blob/master/gifs/Mechanics.gif)
